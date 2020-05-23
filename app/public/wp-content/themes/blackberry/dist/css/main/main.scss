@@ -1,0 +1,86 @@
+/*=============================================
+=            Variables            =
+=============================================*/
+$color-bg: #f5f4f0;
+$color-accent-1: #ab9768;
+$color-text: #000;
+/*=====  End of Variables  ======*/
+
+/*=============================================
+=            Bootstrap Theming            =
+=============================================*/
+
+/*----------  colors  ----------*/
+$theme-colors: (
+  'primary': $color-accent-1,
+);
+
+$container-max-widths: (
+  sm: 1600px,
+  md: 1600px,
+  lg: 1600px,
+  xl: 1600px,
+);
+/*----------  Typography  ----------*/
+$font-family-base: 'Karla', sans-serif;
+
+$btn-padding-y: 10px;
+$btn-padding-x: 15px;
+$btn-border-radius: 0;
+
+/*=====  End of Bootstrap Theming  ======*/
+
+/*=============================================
+=            Load Boostrap After Theming            =
+=============================================*/
+@import '../../vendor/bootstrap-4.4.1/scss/bootstrap.scss';
+/*=====  End of Load Boostrap After Theming  ======*/
+
+/*=============================================
+=            Global             =
+=============================================*/
+
+/*----------  html, body, main  ----------*/
+html,
+body,
+a {
+  scroll-behavior: smooth;
+}
+body {
+  background-color: $color-bg;
+  color: $color-text;
+  min-height: 100vh;
+}
+#main {
+  min-height: 90vh;
+}
+
+/*----------  links  ----------*/
+a:not(.button):not(.btn) {
+  border-bottom: 1px solid rgba($color-accent-1, 0.5);
+  transition: border .4s; 
+
+  &:hover,
+  &:focus,
+  &:active {
+    text-decoration: none;
+    border-bottom: 1px solid rgba($color-accent-1, 1);
+  }
+}
+
+/*----------  typography  ----------*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Merriweather', sans-serif;
+  font-weight: bold;
+}
+
+a.btn-primary,
+.btn-primary {
+  color: #fff;
+}
+/*=====  End of Global   ======*/

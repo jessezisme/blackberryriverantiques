@@ -1,0 +1,69 @@
+/*=============================================
+=            Product Grid            =
+=============================================*/
+.page-products {
+  padding: 8rem 0;
+}
+
+.page-products_cta-wrap {
+  text-align: center;
+  padding-bottom: 3rem;
+}
+
+.page-products_grid .grid-item {
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.page-products_grid .grid-item_img-wrap {
+  position: relative;
+  max-height: 375px;
+  text-align: center;
+}
+
+.page-products_grid .grid-item_img-wrap, .page-products_grid .grid-item_img-wrap:hover, .page-products_grid .grid-item_img-wrap:focus {
+  text-decoration: none;
+}
+
+.page-products_grid .grid-item_img-wrap::after {
+  content: '';
+  display: block;
+  padding-bottom: 80%;
+}
+
+.page-products_grid .grid-item_img-wrap img {
+  position: absolute;
+  height: auto;
+  display: inline-block;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  max-width: 100%;
+  max-height: 100%;
+  padding-bottom: 15px;
+}
+
+.page-products_grid img {
+  max-width: 100%;
+  width: auto;
+  height: auto;
+}
+
+.page-products_grid .grid-item_name-wrap {
+  padding-bottom: 5px;
+  font-weight: bold;
+}
+
+.page-products_grid .grid-item_name-wrap, .page-products_grid .grid-item_name-wrap:hover, .page-products_grid .grid-item_name-wrap:focus {
+  text-decoration: none;
+}
+
+.page-products_grid .grid-item_cta {
+  text-decoration: underline;
+}
+
+/*=====  End of Product Grid  ======*/
+/*# sourceMappingURL=partial-product-grid.css.map */

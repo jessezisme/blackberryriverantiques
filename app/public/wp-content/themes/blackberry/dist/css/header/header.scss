@@ -1,0 +1,114 @@
+#header {
+  padding: 8px 0;
+  background: rgb(15, 34, 43);
+  color: #fff;
+}
+#header a {
+  color: inherit;
+  font-size: 0.95rem;
+  text-transform: lowercase;
+  letter-spacing: 0.015em;
+}
+.header-inner {
+  display: flex;
+  padding: 10px 0;
+  align-items: center;
+  justify-content: space-between;
+}
+.header-nav-main {
+  ul {
+    margin: 0;
+    list-style-type: none;
+  }
+  li {
+    display: inline-block;
+    padding: 8px;
+  }
+}
+
+.header-mob {
+  &_flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &_name {
+    flex-grow: 1;
+  }
+  &_btn {
+    z-index: 9;
+    position: relative;
+    padding: 5px 8px;
+    background: none;
+    border: 1px solid #fff;
+
+    &[aria-expanded='false'] {
+      .open-icon {
+        display: inline-block;
+      }
+      .close-icon {
+        display: none;
+      }
+    }
+    &[aria-expanded='true'] {
+      .open-icon {
+        display: none;
+      }
+      .close-icon {
+        display: inline-block;
+      }
+    }
+  }
+  &_nav-btn {
+    fill: #fff;
+  }
+  &_flyout {
+    display: none;
+    z-index: 8;
+    position: fixed;
+    overflow: auto;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    max-width: 90%;
+    width: 300px;
+    padding-top: 100px;
+    background: darken($color: rgb(15, 34, 43), $amount: 5);
+    transform: translateX(1000%);
+    animation: slideClose 0.6s forwards;
+
+    &.is-open {
+      display: block;
+      animation: slideOpen 0.6s forwards;
+    }
+
+    @keyframes slideOpen {
+      from {
+        transform: translateX(1000%);
+      }
+      to {
+        transform: translateX(0);
+      }
+    }
+    @keyframes slideClose {
+      from {
+        transform: translateX(0);
+      }
+      to {
+        transform: translateX(1000%);
+      }
+    }
+
+    ul {
+      margin: 0;
+      padding: 10px;
+      list-style-type: none;
+    }
+    li a {
+      display: inline-block;
+      margin: 10px auto;
+      text-transform: lowercase;
+      letter-spacing: 0.015em;
+    }
+  }
+}

@@ -2,7 +2,7 @@
 =            Variables            =
 =============================================*/
 $color-bg: #f5f4f0;
-$color-accent-1: #ab9768;
+$color-accent-1: #635436;
 $color-text: #000;
 /*=====  End of Variables  ======*/
 
@@ -37,6 +37,18 @@ $btn-border-radius: 0;
 /*=====  End of Load Boostrap After Theming  ======*/
 
 /*=============================================
+=            Header            =
+=============================================*/
+@import '../header/header.scss';
+/*=====  End of Header  ======*/
+
+/*=============================================
+=            Footer            =
+=============================================*/
+@import '../footer/footer.scss';
+/*=====  End of Footer  ======*/
+
+/*=============================================
 =            Global             =
 =============================================*/
 
@@ -58,7 +70,7 @@ body {
 /*----------  links  ----------*/
 a:not(.button):not(.btn) {
   border-bottom: 1px solid rgba($color-accent-1, 0.5);
-  transition: border .4s; 
+  transition: border 0.4s;
 
   &:hover,
   &:focus,
@@ -82,5 +94,11 @@ h6 {
 a.btn-primary,
 .btn-primary {
   color: #fff;
+}
+
+
+/*----------  forms  ----------*/
+input, textarea, label, form {
+  max-width: 100%; 
 }
 /*=====  End of Global   ======*/

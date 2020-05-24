@@ -10,31 +10,17 @@
   <meta name="description" content="<?php echo get_post_meta(get_the_ID(), '_yoast_wpseo_metadesc', true); ?>">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="manifest" href="site.webmanifest">
-  <link rel="apple-touch-icon" href="icon.png">
-  <!-- Place favicon.ico in the root directory -->
-  <meta name="theme-color" content="#fafafa">
+  <meta name="theme-color" content="#0f222b">
 
   <?php
   wp_enqueue_style('style-main', get_template_directory_uri() . '/dist/css/main/main.css');
-  wp_enqueue_style('style-header', get_template_directory_uri() . '/dist/css/header/header.css');
-  wp_enqueue_style('style-footer', get_template_directory_uri() . '/dist/css/footer/footer.css');
   wp_enqueue_style('style-font', 'https://fonts.googleapis.com/css?family=Karla:400,700|Merriweather:400,700&display=swap');
-  wp_enqueue_script('script-jquery', get_template_directory_uri() . '/dist/vendor/jquery/jquery-3.5.0.min.js', array(), '', true);
-  wp_enqueue_script('script-bootstrap-js', get_template_directory_uri() . '/dist/vendor/bootstrap-4.4.1/dist/js/bootstrap.min.js', array(), '', true);
-  ?>
+  wp_enqueue_script('script-bootstrap-js', get_template_directory_uri() . '/dist/vendor/bootstrap-4.4.1/dist/js/bootstrap.min.js', array('jquery'), '', true);
+  wp_enqueue_script('script-main', get_template_directory_uri() . '/dist/js/main.js', array('jquery'), '', true);
+  wp_localize_script('script-main', 'berry_util', array(
+    'rootURL' => get_site_url()
+  ));
 
-  <?php
-  wp_add_inline_script(
-    'script-jquery',
-    'jQuery(document).ready(function($){
-      $("[data-js=\'header-mob_btn\']").click(function(event) {
-        $("[data-js=\'header-mob_flyout\']").toggleClass("is-open").hasClass("is-open")
-        ? $(this).attr("aria-expanded", "true")
-        : $(this).attr("aria-expanded", "false"); 
-      }); 
-    });'
-  );
   ?>
 
   <?php

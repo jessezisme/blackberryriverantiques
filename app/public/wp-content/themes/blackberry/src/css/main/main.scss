@@ -27,13 +27,12 @@ $font-family-base: 'Karla', sans-serif;
 $btn-padding-y: 10px;
 $btn-padding-x: 15px;
 $btn-border-radius: 0;
-
 /*=====  End of Bootstrap Theming  ======*/
 
 /*=============================================
 =            Load Boostrap After Theming            =
 =============================================*/
-@import '../../vendor/bootstrap-4.4.1/scss/bootstrap.scss';
+@import '../../../vendor/bootstrap-4.4.1/scss/bootstrap.scss';
 /*=====  End of Load Boostrap After Theming  ======*/
 
 /*=============================================
@@ -47,6 +46,14 @@ $btn-border-radius: 0;
 =============================================*/
 @import '../footer/footer.scss';
 /*=====  End of Footer  ======*/
+
+/*=============================================
+=            Helper Classes            =
+=============================================*/
+.base-overflow_hidden {
+  overflow: hidden !important;
+}
+/*=====  End of Helper Classes  ======*/
 
 /*=============================================
 =            Global             =
@@ -96,9 +103,11 @@ a.btn-primary,
   color: #fff;
 }
 
-
 /*----------  forms  ----------*/
-input, textarea, label, form {
-  max-width: 100%; 
+input,
+textarea,
+label,
+form {
+  max-width: 100%;
 }
 /*=====  End of Global   ======*/

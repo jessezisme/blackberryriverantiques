@@ -1,0 +1,79 @@
+.single {
+  padding: 4rem 0 8rem 0;
+}
+
+.single .single_spacing-md {
+  padding-bottom: 1rem;
+}
+
+.single .single_spacing-xl {
+  padding-bottom: 1.5rem;
+}
+
+.single .single_content-wrap {
+  text-align: center;
+}
+
+.single .single_detail-wrap {
+  max-width: 60em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.single .single_name-wrap {
+  padding-top: 1rem;
+}
+
+.single .single_name {
+  font-size: 2rem;
+}
+
+@media all and (min-width: 1200px) {
+  .single .single_name {
+    font-size: 2.25rem;
+  }
+}
+
+.single .single_price {
+  font-size: 1.5rem;
+}
+
+.single .single_contact {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.single-pagination {
+  padding: 2rem 0;
+}
+
+.single-form {
+  text-align: center;
+  background: #efede7;
+  margin-bottom: 4rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.single-form form {
+  display: inline-block;
+}
+
+.single-form input,
+.single-form textarea {
+  border: 2px solid #565656;
+  margin: 10px auto;
+  padding: 5px;
+}
+
+.single-form input[type='submit'] {
+  padding: 0.85rem 1.5rem;
+  background: #ab9768;
+  color: #ffff;
+}
+
+.single-form .single-form_contact-heading {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+/*# sourceMappingURL=single.css.map */

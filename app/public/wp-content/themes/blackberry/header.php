@@ -15,7 +15,7 @@
   <?php
   wp_enqueue_style('style-main', get_template_directory_uri() . '/dist/css/main/main.css');
   wp_enqueue_style('style-font', 'https://fonts.googleapis.com/css?family=Karla:400,700|Merriweather:400,700&display=swap');
-  wp_enqueue_script('script-bootstrap-js', get_template_directory_uri() . '/dist/vendor/bootstrap-4.4.1/dist/js/bootstrap.min.js', array('jquery'), '', true);
+  wp_enqueue_script('script-bootstrap-js', get_template_directory_uri() . '/vendor/bootstrap-4.4.1/dist/js/bootstrap.min.js', array('jquery'), '', true);
   wp_enqueue_script('script-main', get_template_directory_uri() . '/dist/js/main.js', array('jquery'), '', true);
   wp_localize_script('script-main', 'berry_util', array(
     'rootURL' => get_site_url()
@@ -38,6 +38,11 @@
             <a href="/"><?php echo get_bloginfo('title'); ?></a>
           </div>
           <div class="header-nav-main">
+            <button data-js="search_btn" class="btn btn-primary header-nav_search-btn">
+              <span class="sr-only"> Search </span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path d="M23.822 20.88l-6.353-6.354c.93-1.465 1.467-3.2 1.467-5.059.001-5.219-4.247-9.467-9.468-9.467s-9.468 4.248-9.468 9.468c0 5.221 4.247 9.469 9.468 9.469 1.768 0 3.421-.487 4.839-1.333l6.396 6.396 3.119-3.12zm-20.294-11.412c0-3.273 2.665-5.938 5.939-5.938 3.275 0 5.94 2.664 5.94 5.938 0 3.275-2.665 5.939-5.94 5.939-3.274 0-5.939-2.664-5.939-5.939z" /></svg>
+            </button>
             <?php
             wp_nav_menu(array(
               'menu' => 'header-main'
@@ -51,6 +56,11 @@
           <div class="header-mob_name">
             <?php echo get_bloginfo('title'); ?>
           </div>
+          <button data-js="search_btn" class="btn btn-primary header-nav_search-btn">
+            <span class="sr-only"> Search </span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+              <path d="M23.822 20.88l-6.353-6.354c.93-1.465 1.467-3.2 1.467-5.059.001-5.219-4.247-9.467-9.468-9.467s-9.468 4.248-9.468 9.468c0 5.221 4.247 9.469 9.468 9.469 1.768 0 3.421-.487 4.839-1.333l6.396 6.396 3.119-3.12zm-20.294-11.412c0-3.273 2.665-5.938 5.939-5.938 3.275 0 5.94 2.664 5.94 5.938 0 3.275-2.665 5.939-5.94 5.939-3.274 0-5.939-2.664-5.939-5.939z" /></svg>
+          </button>
           <button data-js="header-mob_btn" class="header-mob_btn" aria-expanded="false" aria-controls="header-mob_flyout">
             <span class="open-icon">
               <svg class="header-mob_nav-btn" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
@@ -72,4 +82,26 @@
         </div>
       </div>
     </nav>
+
+    <div data-js="search-overlay" id="search-overlay" class="is-hidden">
+      <div class="search-overlay_in">
+        <div class="text-center">
+          <button data-js="search_btn_close" id="search-overlay_close" class="btn btn-primary"> Close Search </button>
+        </div>
+        <form data-js="search-overlay_form">
+          <div class="form-group">
+            <input aria-controls="search-overlay_results" data-js="search-overlay_input" type="search" aria-label="Search Products" placeholder="Search Products" class="form-control">
+          </div>
+        </form>
+        <div id="search-overlay_loading">
+          <div class="spinner-border" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+        </div>
+        <div id="search-overlay_results">
+        </div>
+      </div>
+    </div>
+
+
   </header>

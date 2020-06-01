@@ -48,12 +48,12 @@
           self.closeSearch();
         });
         // prevent search form submit
-        this.$elSearchForm.on('submit', function (event) {
+        this.$elSearchForm.on('submit.berrySearchSubmit', function (event) {
           event.preventDefault();
           return false;
         });
         // listens for any input on search field
-        this.$elSearchInput.on('input', function (event) {
+        this.$elSearchInput.on('input.berrySearchInput', function (event) {
           // get search term now
           self.searchTerm = $.trim($(this).val().toLowerCase());
           // clear results if term is empty
@@ -70,7 +70,7 @@
           }, 1500);
         });
         // trap focus inside overlay
-        this.$elOverlay.on('focusout', function (event) {
+        this.$elOverlay.on('focusout.berrySearchFocusOut', function (event) {
           window.setTimeout(function () {
             if (self.isOpen && self.$elOverlay.find('*:focus').length === 0) {
               self.$elOverlay.find('a, button').first().trigger('focus');
@@ -191,7 +191,5 @@
     };
 
     moduleSearch.init();
-
-    window.moduleSearch = moduleSearch;
   });
 })(jQuery);

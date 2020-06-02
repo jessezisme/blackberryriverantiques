@@ -9,6 +9,7 @@
   text-transform: lowercase;
   letter-spacing: 0.015em;
 }
+
 .header-inner {
   display: flex;
   padding: 10px 0;
@@ -16,7 +17,11 @@
   justify-content: space-between;
 }
 .header-nav-main {
+  display: flex;
+  align-items: center;
+
   ul {
+    padding: 0;
     margin: 0;
     list-style-type: none;
   }
@@ -25,7 +30,15 @@
     padding: 8px;
   }
 }
+.header-nav_search-btn {
+  display: inline-block;
+  margin: 0 15px 0 0;
+  padding: 5px 8px;
 
+  svg {
+    fill: #fff !important;
+  }
+}
 .header-mob {
   &_flex {
     display: flex;
@@ -34,9 +47,12 @@
   }
   &_name {
     flex-grow: 1;
+    @media all and (max-width: 375px) {
+      font-size: 0.85rem;
+    }
   }
   &_btn {
-    z-index: 9;
+    z-index: 6;
     position: relative;
     padding: 5px 8px;
     background: none;
@@ -112,3 +128,66 @@
     }
   }
 }
+
+/*=============================================
+=            Search Overlay            =
+=============================================*/
+#search-overlay {
+  display: block;
+  z-index: 9;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.98);
+  overflow-y: auto;
+
+  .search-overlay_in {
+    width: 100%;
+    max-width: 650px;
+    margin: auto;
+    padding: 75px 15px 30px 15px;
+  }
+
+  #search-overlay_results {
+    ul {
+      padding: 0;
+      margin: 1rem 0 0 0;
+    }
+    li {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+    li a {
+      display: block;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+      transition: background 0.25s;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.25);
+      }
+    }
+  }
+
+  #search-overlay_close {
+    margin: 20px 0;
+  }
+  #search-overlay_loading {
+    display: none;
+    text-align: center;
+  }
+  &.is-loading #search-overlay_loading {
+    display: block !important;
+  }
+  &.is-loading #search-overlay_results {
+    display: none !important;
+  }
+  &.is-hidden {
+    display: none !important;
+  }
+}
+
+/*=====  End of Search Overlay  ======*/

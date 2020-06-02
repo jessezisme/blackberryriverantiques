@@ -17,6 +17,11 @@ app/public/wp-content/themes/*
 
 # exclusions
 !.gitignore
+!gulpfile.js
+!package.json
+!package-lock.json
+!.prettierrc.json
+!.eslintrc.json
 !app/
 !app/public/
 !app/public/wp-content/

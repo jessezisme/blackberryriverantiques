@@ -6,6 +6,7 @@ function berry_init_post_types()
   register_post_type(
     'event',
     array(
+      'show_in_rest' => true,
       'has_archive' => true,
       'public' => true,
       'labels' => array(

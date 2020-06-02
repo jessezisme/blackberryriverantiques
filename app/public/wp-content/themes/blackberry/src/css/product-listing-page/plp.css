@@ -1,0 +1,70 @@
+.plp .plp_content {
+  width: 100%;
+  max-width: 65em;
+  margin: auto;
+  padding-top: 6rem;
+}
+
+.plp .section-spacing {
+  padding-bottom: 6rem;
+}
+
+.plp .grid-item_spacing {
+  padding-bottom: 5px;
+}
+
+.plp .grid-item {
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.plp .grid-item_img-wrap {
+  position: relative;
+  max-height: 375px;
+  text-align: center;
+}
+
+.plp .grid-item_img-wrap, .plp .grid-item_img-wrap:hover, .plp .grid-item_img-wrap:focus {
+  text-decoration: none;
+}
+
+.plp .grid-item_img-wrap::after {
+  content: '';
+  display: block;
+  padding-bottom: 80%;
+}
+
+.plp .grid-item_img-wrap img {
+  position: absolute;
+  height: auto;
+  display: inline-block;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  max-width: 100%;
+  max-height: 100%;
+  padding-bottom: 15px;
+}
+
+.plp img {
+  max-width: 100%;
+  width: auto;
+  height: auto;
+}
+
+.plp .grid-item_name-wrap {
+  padding-bottom: 5px;
+  font-weight: bold;
+}
+
+.plp .grid-item_name-wrap, .plp .grid-item_name-wrap:hover, .plp .grid-item_name-wrap:focus {
+  text-decoration: none;
+}
+
+.plp .grid-item_cta {
+  text-decoration: underline;
+}
+/*# sourceMappingURL=plp.css.map */

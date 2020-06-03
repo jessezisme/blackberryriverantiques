@@ -15,10 +15,12 @@
   <?php
   wp_enqueue_style('style-main', get_template_directory_uri() . '/dist/css/main/main.css');
   wp_enqueue_style('style-font', 'https://fonts.googleapis.com/css?family=Karla:400,700|Merriweather:400,700&display=swap');
+  wp_enqueue_script('jquery');
   wp_enqueue_script('script-bootstrap-js', get_template_directory_uri() . '/vendor/bootstrap-4.4.1/dist/js/bootstrap.min.js', array('jquery'), '', true);
   wp_enqueue_script('script-main', get_template_directory_uri() . '/dist/js/main.js', array('jquery'), '', true);
   wp_localize_script('script-main', 'berry_util', array(
-    'rootURL' => get_site_url()
+    'rootURL' => get_site_url(),
+    'templateDir' => get_template_directory_uri()
   ));
 
   ?>
@@ -35,7 +37,7 @@
       <div class="header-full d-none d-lg-block">
         <div class="header-inner text-light">
           <div class="header-logo">
-            <a href="/"><?php echo get_bloginfo('title'); ?></a>
+            <a href="<?php echo get_home_url(); ?>"><?php echo get_bloginfo('title'); ?></a>
           </div>
           <div class="header-nav-main">
             <button data-js="search_btn" class="btn btn-primary header-nav_search-btn">
@@ -54,7 +56,9 @@
       <div class="header-mob d-xs-block d-lg-none clearfix">
         <div class="header-mob_flex">
           <div class="header-mob_name">
-            <?php echo get_bloginfo('title'); ?>
+            <a href="<?php echo get_home_url(); ?>">
+              <?php echo get_bloginfo('title'); ?>
+            </a>
           </div>
           <button data-js="search_btn" class="btn btn-primary header-nav_search-btn">
             <span class="sr-only"> Search </span>

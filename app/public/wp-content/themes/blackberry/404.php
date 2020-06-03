@@ -9,7 +9,7 @@
       <div class="col-12">
         <h1> This page doesn't exist.
           <br>
-          Return <a href="/">home</a>.
+          Return <a href="<?php echo get_home_url(); ?>">home</a>.
         </h1>
       </div>
     </div>

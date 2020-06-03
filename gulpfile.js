@@ -30,25 +30,27 @@ console.log('Environment running in Gulp: ' + config.env);
 =            JS            =
 =============================================*/
 gulp.task('js', function () {
-  return gulp
-    .src([config.assets_src + 'js/main.js'], {
-      base: config.assets_src,
-    })
-    .pipe(
-      babel({
-        presets: ['@babel/env'],
+  return (
+    gulp
+      .src([config.assets_src + 'js/main.js'], {
+        base: config.assets_src,
       })
-    )
-    .pipe(
-      // only minifiy if in prod; run noop() to just pass stream through using noop()
-      config.env_prod ? minify() : noop()
-    )
-    .pipe(concat('main.js'))
-    .pipe(
-      // only uglify if in prod; run noop() to just pass stream through using noop()
-      config.env_prod ? uglify() : noop()
-    )
-    .pipe(gulp.dest(config.assets_dist + 'js'));
+      .pipe(
+        babel({
+          presets: ['@babel/env'],
+        })
+      )
+      .pipe(
+        // only minifiy if in prod; run noop() to just pass stream through using noop()
+        config.env_prod ? minify() : noop()
+      )
+      // .pipe(concat('main.js'))
+      .pipe(
+        // only uglify if in prod; run noop() to just pass stream through using noop()
+        config.env_prod ? uglify() : noop()
+      )
+      .pipe(gulp.dest(config.assets_dist))
+  );
 });
 /*=====  End of JS  ======*/
 
@@ -79,7 +81,7 @@ gulp.task('sass', function () {
 =            Serve & Watch          =
 =============================================*/
 gulp.task('serve-watch', function () {
-  gulp.watch(config.assets_src + 'js/*.js', gulp.series('js'));
+  gulp.watch(config.assets_src + 'js/main.js', gulp.series('js'));
   gulp.watch(config.assets_src + 'css/**/*.scss', gulp.series('sass'));
 });
 

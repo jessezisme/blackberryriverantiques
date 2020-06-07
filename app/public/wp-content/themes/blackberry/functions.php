@@ -36,8 +36,28 @@ function berryRestSearchCB($data)
 {
   $products = new WP_QUERY(array(
     'post_type' => 'post',
+    // 's' => sanitize_text_field($data['term']),
     'post_status' => 'publish',
-    's' => sanitize_text_field($data['term'])
+    'nopaging' => true,
+    'posts_per_page' => 30,
+    'meta_query' => array(
+      'relation' => 'OR',
+      array(
+        'key' => 'post_title',
+        'compare' => 'REGEXP',
+        'value' => '(?i)(' . sanitize_text_field($data['term']) . ')'
+      ),
+      array(
+        'key' => 'posts_product_name',
+        'compare' => 'REGEXP',
+        'value' => '(?i)(' . sanitize_text_field($data['term']) . ')'
+      ),
+      array(
+        'key' => 'posts_product_description',
+        'compare' => 'REGEXP',
+        'value' => '(?i)(' . sanitize_text_field($data['term']) . ')'
+      )
+    )
   ));
 
   $productResults = array();
@@ -46,6 +66,7 @@ function berryRestSearchCB($data)
     $products->the_post();
     array_push($productResults, array(
       'post_title' => get_the_title(),
+      'post_product_name' => get_field('posts_product_name'),
       'post_excerpt' => get_the_excerpt(),
       'permalink' => get_the_permalink(),
       'post_thumbnail' => get_the_post_thumbnail(get_the_id(), 'thumbnail', ''),

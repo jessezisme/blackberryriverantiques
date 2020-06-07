@@ -169,7 +169,7 @@
           response.forEach(function (val, index, arr) {
             var getLI = $('<li></li>');
             var getLink = $('<a></a>').attr('href', val.permalink);
-            var getTitle = $('<div></div>').text(val.post_title);
+            var getTitle = $('<div></div>').text(val.post_product_name);
 
             getTitle.appendTo(getLink);
             getLink.appendTo(getLI);

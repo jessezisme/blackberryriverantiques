@@ -44,18 +44,18 @@ function berryRestSearchCB($data)
       'relation' => 'OR',
       array(
         'key' => 'post_title',
-        'compare' => 'REGEXP',
-        'value' => '(?i)(' . sanitize_text_field($data['term']) . ')'
+        'compare' => 'LIKE',
+        'value' => sanitize_text_field($data['term'])
       ),
       array(
         'key' => 'posts_product_name',
-        'compare' => 'REGEXP',
-        'value' => '(?i)(' . sanitize_text_field($data['term']) . ')'
+        'compare' => 'LIKE',
+        'value' => sanitize_text_field($data['term'])
       ),
       array(
         'key' => 'posts_product_description',
-        'compare' => 'REGEXP',
-        'value' => '(?i)(' . sanitize_text_field($data['term']) . ')'
+        'compare' => 'LIKE',
+        'value' => sanitize_text_field($data['term'])
       )
     )
   ));

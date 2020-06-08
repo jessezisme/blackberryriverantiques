@@ -74,6 +74,10 @@ body {
   min-height: 90vh;
 }
 
+/*----------  img  ----------*/
+img {
+  max-width: 100%;
+}
 /*----------  links  ----------*/
 a:not(.button):not(.btn) {
   border-bottom: 1px solid rgba($color-accent-1, 0.5);

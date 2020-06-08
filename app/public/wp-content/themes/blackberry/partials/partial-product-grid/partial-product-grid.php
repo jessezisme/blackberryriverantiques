@@ -45,14 +45,18 @@ if (
           <?php
           $getCounter = 1;
           foreach ($getProductPosts as $product) {
-            $getImg = wp_get_attachment_image($product->posts_product_main_image, 'medium_large');
+            $getImg = get_the_post_thumbnail($product->ID, 'medium_large');
             $getProductName = get_post_meta($product->ID, 'posts_product_name', true);
             $getProductShortDescription = get_post_meta($product->ID, 'posts_product_description', true);
           ?>
             <div class="grid-item col-xs-12 col-sm-6 col-md-4 text-dark">
               <a href="<?php the_permalink($product); ?>">
                 <div class="grid-item_img-wrap text-dark">
-                  <?php echo $getImg ?>
+                  <?php
+                  if ($getImg) {
+                    echo $getImg;
+                  }
+                  ?>
                 </div>
                 <div class="grid-item_name-wrap text-dark">
                   <?php echo $getProductName ?>

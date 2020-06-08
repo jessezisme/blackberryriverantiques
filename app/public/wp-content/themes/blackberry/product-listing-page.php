@@ -38,8 +38,7 @@ wp_enqueue_style('style-product-listing-page', get_template_directory_uri() . '/
         if ($query->have_posts()) {
           while ($query->have_posts()) {
             $query->the_post();
-            // image 
-            $getMainImg = get_post_meta($post->ID, 'posts_product_main_image', true);
+            $getMainImg = get_post_thumbnail_id($post->ID);
             $getAltText = get_post_meta($getMainImg, '_wp_attachment_image_alt', true) ? get_post_meta($getMainImg, '_wp_attachment_image_alt', true) : '';
             $getImg = wp_get_attachment_image($getMainImg, 'medium_large', false, array(
               'class' => 'img-fluid grid-item_img'
@@ -57,7 +56,13 @@ wp_enqueue_style('style-product-listing-page', get_template_directory_uri() . '/
             <div class="grid-item col-xs-12 col-sm-6 col-md-4 text-dark text-center">
               <a href="<?php the_permalink($post->ID); ?>">
                 <div class="grid-item_img-wrap grid-item_spacing text-dark ">
-                  <img class="img-fluid grid-item_img" alt="<?php echo $getAltText; ?>" src="<?php echo $getImgSrcMedLg[0]; ?>" srcset="<?php echo $getImgSrcMed[0]; ?> 300w, <?php echo $getImgSrcMedLg[0]; ?> 768w, " sizes="100vw, (min-width: 576px) 50vw">
+                  <?php
+                  if ($getMainImg) {
+                  ?>
+                    <img class="img-fluid grid-item_img" alt="<?php echo $getAltText; ?>" src="<?php echo $getImgSrcMedLg[0]; ?>" srcset="<?php echo $getImgSrcMed[0]; ?> 300w, <?php echo $getImgSrcMedLg[0]; ?> 768w, " sizes="100vw, (min-width: 576px) 50vw">
+                  <?php
+                  }
+                  ?>
                 </div>
                 <div class="grid-item_name-wrap grid-item_spacing text-dark ">
                   <?php echo $getProductName; ?>

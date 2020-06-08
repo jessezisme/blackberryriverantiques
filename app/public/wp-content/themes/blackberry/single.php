@@ -85,6 +85,19 @@ $getSlideshow = get_field('posts_slideshow');
     </div>
   </div>
 
+  <!-- additional content -->
+  <div class="single">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <?php
+          echo the_content();
+          ?>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- contact form -->
   <div id="contact-form" class="single-form">
     <div class="container">
